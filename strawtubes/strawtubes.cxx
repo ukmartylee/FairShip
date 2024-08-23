@@ -220,11 +220,10 @@ void strawtubes::SetOuterStrawDiameter(Double_t outerstrawdiameter)
 }
 
 
-void strawtubes::SetStrawPitch(Double_t strawpitch,Double_t layer_offset, Double_t plane_offset)
+void strawtubes::SetStrawPitch(Double_t strawpitch, Double_t layer_offset)
 {
      fStraw_pitch = strawpitch;                                 //!  Distance (x) between straws in one layer
      fOffset_layer12 = layer_offset;
-     fOffset_plane12 = plane_offset;
 }
 
 void strawtubes::SetDeltazLayer(Double_t deltazlayer)
@@ -232,19 +231,14 @@ void strawtubes::SetDeltazLayer(Double_t deltazlayer)
      fDeltaz_layer12 = deltazlayer;                              //! Distance (z) between layer 1&2
 }
 
-void strawtubes::SetDeltazPlane(Double_t deltazplane)
-{
-     fDeltaz_plane12 = deltazplane;                              //! Distance (z) between plane 1&2
-}
-
 void strawtubes::SetStrawsPerLayer(Int_t strawsperlayer)
 {
      fStraws_per_layer = strawsperlayer;                         //! number of straws in one layer
 }
 
-void strawtubes::SetStereoAngle(Int_t stereoangle)
+void strawtubes::SetStereoAngle(Double_t stereoangle)
 {
-     fView_angle = stereoangle;                                  //! Stereo angle of planes in a view
+     fView_angle = stereoangle;                                  //! Stereo angle of layers in a view
      fcosphi=cos(TMath::Pi()*fView_angle/180.);
      fsinphi=sin(TMath::Pi()*fView_angle/180.);
 }
@@ -351,8 +345,6 @@ void strawtubes::ConstructGeometry()
     Double_t framewidth = 40.;
     //width of view
     Double_t viewwidth = fDeltaz_view-eps;
-    //width of plane
-    Double_t planewidth = fOuter_Straw_diameter+fDeltaz_layer12-eps;
     //width of layer
     Double_t layerwidth = fOuter_Straw_diameter;
 
