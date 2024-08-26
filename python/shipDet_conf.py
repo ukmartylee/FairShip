@@ -327,10 +327,6 @@ def configure(run,ship_geo):
      tauHpt.GetNumberofTargets(ship_geo.NuTauTarget.target)
     detectorList.append(tauHpt)
 
- # for backward compatibility
- if not hasattr(ship_geo.strawtubes, "YPlaneOffset"):
-   ship_geo.strawtubes.YLayerOffset = ship_geo.strawtubes.StrawPitch  / 2.
-   ship_geo.strawtubes.YPlaneOffset = ship_geo.strawtubes.StrawPitch  / 4.
  if ship_geo.strawDesign > 1 :
   # for backward compatibility
   if ship_geo.strawDesign == 10 and not hasattr(ship_geo.strawtubes, "DeltazFrame"):
@@ -350,9 +346,8 @@ def configure(run,ship_geo):
   Strawtubes.SetDeltazView(ship_geo.strawtubes.DeltazView)
   Strawtubes.SetInnerStrawDiameter(ship_geo.strawtubes.InnerStrawDiameter)
   Strawtubes.SetOuterStrawDiameter(ship_geo.strawtubes.OuterStrawDiameter)
-  Strawtubes.SetStrawPitch(ship_geo.strawtubes.StrawPitch,ship_geo.strawtubes.YLayerOffset,ship_geo.strawtubes.YPlaneOffset)
+  Strawtubes.SetStrawPitch(ship_geo.strawtubes.StrawPitch,ship_geo.strawtubes.YLayerOffset)
   Strawtubes.SetDeltazLayer(ship_geo.strawtubes.DeltazLayer)
-  Strawtubes.SetDeltazPlane(ship_geo.strawtubes.DeltazPlane)
   Strawtubes.SetStrawsPerLayer(ship_geo.strawtubes.StrawsPerLayer)
   Strawtubes.SetStereoAngle(ship_geo.strawtubes.ViewAngle)
   Strawtubes.SetWireThickness(ship_geo.strawtubes.WireThickness)
