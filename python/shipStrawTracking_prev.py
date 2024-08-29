@@ -134,9 +134,7 @@ if global_variables.debug:
   print("Wire thickness         :",shipPatRec_prev.ship_geo.strawtubes.WireThickness)
   print("Straw pitch            :",shipPatRec_prev.ship_geo.strawtubes.StrawPitch)
   print("z-offset between layers:",shipPatRec_prev.ship_geo.strawtubes.DeltazLayer)
-  print("z-offset between planes:",shipPatRec_prev.ship_geo.strawtubes.DeltazPlane)
   print("Straws per layer       :",shipPatRec_prev.ship_geo.strawtubes.StrawsPerLayer)
-  print("z-offset between planes:",shipPatRec_prev.ship_geo.strawtubes.DeltazPlane)
   print("z-offset between views :",shipPatRec_prev.ship_geo.strawtubes.DeltazView)
 
 shipPatRec_prev.initialize(fgeo)
